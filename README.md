@@ -10,6 +10,7 @@ Example 1:
 - working with tasks
 
 execute:
-{code}
+
+```console
   gradlew -b tasks.gradle task3
-{code}
+```
