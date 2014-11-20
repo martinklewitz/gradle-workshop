@@ -1,0 +1,38 @@
+import groovyx.net.http.RESTClient
+import groovy.json.JsonSlurper
+import static groovyx.net.http.ContentType.TEXT
+import static groovyx.net.http.Method.GET
+
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.codehaus.groovy.modules.http-builder:http-builder:0.7")
+  }
+}
+
+def currentVersion = new HashMap()
+
+task doWebCall << {
+  def http = new RESTClient('http://api.openweathermap.org')
+  http.request(GET, TEXT) { req ->
+    uri.path = '/data/2.5/weather?q=Berlin,de'
+    uri.port = 80
+    response.success = { resp, reader ->
+      assert resp.status == 200
+      def slurper = new JsonSlurper().parseText(reader.text)
+      currentVersion.put(uri.path, slurper.wind)
+    }
+  }
+
+}
+
+task printInfo << {
+  currentVersion.entrySet().each {
+    println 'key: ' + it.key
+    println 'value: ' + it.value
+  }
+}
+printInfo.dependsOn doWebCall

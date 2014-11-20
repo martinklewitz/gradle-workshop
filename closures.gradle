@@ -1,0 +1,40 @@
+
+project.ext {
+  prop = 1
+  name = 'value of propery'
+}
+
+Map hashMap = new HashMap()
+
+Closure myClosure = { param ->
+  println 'hallo ' + param
+  if(param){
+    hashMap.put('key','value')
+  }
+}
+
+public void runFunction(Map hashMap){
+  println 'runFunction'
+  println hashMap.get('key')
+}
+
+task load{
+  description 'load properties'
+  doLast{
+    println project.ext.prop
+    println project.ext.name
+    project.ext.name = 'new value of property'
+    println project.ext.name
+    myClosure 'martin'
+    runFunction(hashMap)
+  }
+}
+
+
+
+
+
+
+
+
+

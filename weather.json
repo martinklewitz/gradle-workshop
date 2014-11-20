@@ -1,0 +1,29 @@
+{"coord": {
+  "lon": 13.41,
+  "lat": 52.52
+}, "sys": {
+  "type": 1,
+  "id": 4892,
+  "message": 0.5769,
+  "country": "DE",
+  "sunrise": 1416465458,
+  "sunset": 1416495990
+}, "weather": [
+  {
+    "id": 803,
+    "main": "Clouds",
+    "description": "broken clouds",
+    "icon": "04n"
+  }
+], "base": "cmc stations", "main": {
+  "temp": 278.46,
+  "pressure": 1028,
+  "humidity": 100,
+  "temp_min": 278.15,
+  "temp_max": 278.85
+}, "wind": {
+  "speed": 1,
+  "deg": 280
+}, "clouds": {
+  "all": 75
+}, "dt": 1416516619, "id": 2950159, "name": "Berlin", "cod": 200}

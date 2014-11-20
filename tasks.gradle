@@ -1,0 +1,58 @@
+
+task task1 {
+  println 'task1!'
+}
+
+task task2 {
+  println 'task2!'
+}
+
+task task3(dependsOn: task2) {
+  println 'task3!'
+}
+
+
+
+
+
+task task4{
+  doFirst{
+    println 'Do First task4!'
+  }
+
+  description 'Description of task 4'
+  println 'task4!'
+
+  doLast{
+    println 'Do Last task4!'
+  }
+}
+
+task task5{
+  doFirst{
+    println 'Do First task5!'
+  }
+  //dependsOn task4
+  description 'Description of task 5'
+  println 'task5!'
+
+
+  doLast{
+    task4.execute()
+    println 'Do Last task5!'
+  }
+}
+
+//task5.dependsOn task4
+
+
+task task6 << {
+  println 'task6!'
+}
+
+
+
+
+
+
+
