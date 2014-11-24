@@ -12,5 +12,16 @@ Example 1:
 execute:
 
 ```console
-  gradlew -b tasks.gradle task3
+  gradlew -b cd gradle-examples/tasks.gradle task3
+```
+
+Example 2:
+----------
+
+- working with libraries in gradle scripts  
+
+execute:
+
+```console
+  gradlew -b gradle-examples/imports.gradle printInfo
 ```
